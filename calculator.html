@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    .container {
+        width: 100%;
+        height: 96vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: seagreen;
+    }
+
+    .calculator {
+        
+        border-radius: 5%;
+        width: 600px;
+        height: 700px;
+        text-align: center;
+        background-color: rgb(236, 155, 5);
+        
+    }
+
+
+
+    .calculator input {
+        width: 97%;
+        height: 100px;
+        border: none;
+        outline: none;
+        text-align: right;
+        font-size:85px;
+        background-color: rgb(236, 155, 5);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-bottom: 5%;
+    }
+
+    .calci{
+        padding: 5%;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        
+    }
+
+    .buttons button{
+        width: 125px;
+        height: 85px;
+        cursor: pointer;
+        border-radius: 30%;
+        font-size: 20px;
+        
+    }
+    button:hover {
+        background-color: black;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #operation{
+        color: white;
+        background-color: black;
+    }
+</style>
+<script>
+    function appendToResult(val){
+        document.getElementById("input").value+=val;
+    }
+    function calculateResult(){
+        let x= document.getElementById("input").value;
+        let y=eval(x);
+        document.getElementById("input").value=y;
+    }
+
+    function deleteLast(){
+        let x=document.getElementById("input").value;
+        document.getElementById("input").value=x.slice(0,-1);
+    }
+
+    function clearResult(){
+        document.getElementById("input").value="";
+    }
+
+   
+    
+
+    
+
+</script>
+<body>
+    <div class="container">
+        <div class="calculator">
+
+            <div class="calci">
+                <input placeholder="0" type="text" id="input">
+                <br>
+                <div class="buttons">
+                    <button id="operation" onclick="clearResult('c')">C</button>
+                    <button id="operation" onclick="deleteLast('d')">DEL</button>
+                    <button id="operation" onclick="appendToResult('%')">%</button>
+                    <button id="operation" onclick="appendToResult('/')">/</button>
+
+                    <button onclick="appendToResult('7')">7</button>
+                    <button onclick="appendToResult('8')">8</button>
+                    <button onclick="appendToResult('9')">9</button>
+                    <button id="operation" onclick="appendToResult('*')">*</button>
+
+                    <button onclick="appendToResult('4')">4</button>
+                    <button onclick="appendToResult('5')">5</button>
+                    <button onclick="appendToResult('6')">6</button>
+                    <button id="operation" onclick="appendToResult('+')">+</button>
+
+                    <button onclick="appendToResult('1')">1</button>
+                    <button onclick="appendToResult('2')">2</button>
+                    <button onclick="appendToResult('3')">3</button>
+                    <button id="operation" onclick="appendToResult('-')">-</button>
+
+                    <button onclick="appendToResult('0')">0</button>
+                    <button onclick="appendToResult('00')">00</button>
+                    <button onclick="appendToResult('.')">.</button>
+                    <button id="operation" onclick="calculateResult()">=</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+
+</html>
